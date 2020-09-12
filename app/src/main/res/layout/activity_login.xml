@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <RelativeLayout
+        android:id="@+id/rootView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background" />
+
+        <ImageView
+            android:id="@+id/image_ariana"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:scaleType="matrix"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:src="@drawable/model" />
+
+        <TextView
+            android:id="@+id/textlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/gitchgitch"
+            android:text="Surf Art"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp" />
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/lnemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tvemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:imeOptions="actionNext"
+                    android:backgroundTint="@color/colorWhite"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnpassword"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/lnemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tvpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:backgroundTint="@color/colorWhite"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btlogin"
+                android:layout_below="@id/lnpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/button_white"
+                android:text="@string/Login"
+                android:textAllCaps="false"
+                android:textColor="#005C97"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

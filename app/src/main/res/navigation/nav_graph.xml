@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.br.lojasurfart.ui.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.br.lojasurfart.ui.CategoryFragment"
+        android:label="category_fragment"
+        tools:layout="@layout/category_fragment" />
+    <fragment
+        android:id="@+id/favoriteProductFragment"
+        android:name="com.br.lojasurfart.ui.FavoriteProductFragment"
+        android:label="favorite_product_fragment"
+        tools:layout="@layout/favorite_product_fragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.br.lojasurfart.ui.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+</navigation>

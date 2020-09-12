@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LojaSurfArt</string>
+
+    <string name="Login">Log In</string>
+    <string name="signup">Don\'t have an Account? <b>Sign Up</b></string>
+    <string name="label1">Don\'t wait</string>
+    <string name="logo_name">Spotify</string>
+    <string name="label2">Log in or create a new account now</string>
+    <string name="email">Enter Email</string>
+    <string name="password">Enter Password</string>
+    <string name="social">Or Log In using</string>
+    <string name="facebook">Facebook</string>
+</resources>

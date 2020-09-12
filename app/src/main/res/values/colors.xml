@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- <color name="colorPrimary">#008577</color> -->
+    <color name="colorPrimary">#3b5998</color>
+    <!-- <color name="colorPrimaryDark">#00574B</color> -->
+    <color name="colorPrimaryDark">#1f4491</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFF</color>
+
+    <color name="colorRose">#b11946</color>
+    <color name="colorDark">#1b0045</color>
+    <color name="colorDarkApha">#7a071724</color>
+    <color name="colorHint">#7fffffff</color>
+    <color name="colorFacebook">#3b5998</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="lighter">#EEEEEE</color>
+    <color name="light">#DDDDDD</color>
+    <color name="regular">#999999</color>
+    <color name="dark">#666666</color>
+    <color name="darker">#333333</color>
+    <color name="black">#000000</color>
+
+    <color name="primary">#7A91CA</color>
+    <color name="secondary">#444A5A</color>
+    <color name="success">#9DCA83</color>
+    <color name="danger">#E37A7A</color>
+
+    <color name="blueButton">#4696eb</color>
+    <color name="colorLightGray">#f0f0f0</color>
+    <color name="colorDarkGray">#d2d2d2</color>
+    <color name="colorText">#606060</color>
+
+    <color name="transparent">#00ff0000</color>
+    <color name="darkTransparent">#D81B60</color>
+    <color name="whiteTransparent">#D81B60</color>
+</resources>
