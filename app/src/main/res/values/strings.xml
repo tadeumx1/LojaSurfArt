@@ -7,7 +7,27 @@
     <string name="logo_name">Spotify</string>
     <string name="label2">Log in or create a new account now</string>
     <string name="email">Enter Email</string>
+    <string name="user">Usuário</string>
+    <string name="password_user">Senha</string>
+    <string name="login_user">Entrar</string>
     <string name="password">Enter Password</string>
     <string name="social">Or Log In using</string>
     <string name="facebook">Facebook</string>
+
+    <string name="surf_art">Surf Art</string>
+    <string name="bem_vindo">Bem vindo</string>
+    <string name="calcados">Calcados</string>
+    <string name="bermudas">Bermudas</string>
+    <string name="camisetas">Camisetas</string>
+
+    <string name="home_activity">Home Activity</string>
+    <string name="product_category_activity">Product Category Activity</string>
+    <string name="register_activity">Register Activity</string>
+    <string name="settings_activity">Settings Activity</string>
+    <string name="buscar">Buscar</string>
+    <string name="atualizar_pagina">Atualizar página</string>
+    <string name="adicionar_produto">Adicionar produto</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="sair">Sair</string>
+
 </resources>

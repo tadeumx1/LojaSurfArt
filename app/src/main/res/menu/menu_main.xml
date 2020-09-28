@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/buscar"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+    <item android:id="@+id/action_update"
+        android:icon="@drawable/ic_replay_white_24dp"
+        android:title="@string/atualizar_pagina"
+        app:showAsAction="always" />
+    <item android:id="@+id/action_add_item"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="@string/adicionar_produto"
+        app:showAsAction="always" />
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="@string/configuracoes"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_quit_user"
+        android:icon="@drawable/ic_compare_arrows_black_24dp"
+        android:title="@string/sair"
+        app:showAsAction="never" />
+
+</menu>

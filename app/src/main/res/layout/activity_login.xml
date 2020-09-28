@@ -22,7 +22,7 @@
             android:background="@drawable/background" />
 
         <ImageView
-            android:id="@+id/image_ariana"
+            android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.3"
@@ -39,9 +39,20 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:fontFamily="@font/gitchgitch"
-            android:text="Surf Art"
+            android:text="@string/surf_art"
             android:textColor="@color/colorWhite"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/text_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/bem_vindo"
+            android:layout_below="@id/textlogo"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
         <RelativeLayout
             android:layout_alignParentBottom="true"
@@ -59,10 +70,10 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/tvemail"
+                    android:id="@+id/edtUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email"
+                    android:hint="@string/user"
                     android:imeOptions="actionNext"
                     android:backgroundTint="@color/colorWhite"
                     android:inputType="textEmailAddress"
@@ -82,10 +93,10 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/tvpassword"
+                    android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password"
+                    android:hint="@string/password_user"
                     android:imeOptions="actionNext"
                     android:backgroundTint="@color/colorWhite"
                     android:inputType="textPassword"
@@ -96,16 +107,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btlogin"
+                android:id="@+id/btnLogin"
                 android:layout_below="@id/lnpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_white"
-                android:text="@string/Login"
-                android:textAllCaps="false"
-                android:textColor="#005C97"
-                android:textSize="12dp" />
+                style="@style/buttonStyle"
+                android:text="@string/login_user"
+                android:layout_marginTop="50dp" />
 
         </RelativeLayout>
 
