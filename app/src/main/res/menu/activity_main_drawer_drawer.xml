@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_products"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="Produtos"
+            android:checked="true"/>
+        <item android:id="@+id/nav_categories"
+            android:title="Categorias"
+            android:icon="@drawable/ic_view_headline_black_24dp" />
+        <item android:id="@+id/nav_location"
+            android:title="Localização"
+            android:icon="@drawable/ic_location_on_black_24dp" />
+        <item android:id="@+id/nav_config"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Configurações" />
+        <item android:id="@+id/nav_quit_user"
+            android:icon="@drawable/ic_compare_arrows_black_action_24dp"
+            android:title="Sair" />
+    </group>
+</menu>

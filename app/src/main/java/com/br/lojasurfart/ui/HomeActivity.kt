@@ -1,24 +1,27 @@
 package com.br.lojasurfart.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.br.lojasurfart.R
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.SearchView
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : DebugActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        this.genericLayoutMenu = drawer_menu_layout
+        this.genericMenuLateral = nav_view
+
         btnShirt.setOnClickListener {
-           showProductCategoryActivity("Camisetas")
+            showProductCategoryActivity("Camisetas")
         }
 
         btnBermudas.setOnClickListener {
@@ -28,6 +31,16 @@ class HomeActivity : AppCompatActivity() {
         btnCalcados.setOnClickListener {
             showProductCategoryActivity("Calçados")
         }
+
+        btnProdutos.setOnClickListener {
+            val intent = Intent(this, ProductActivity::class.java)
+            startActivity(intent)
+        }
+
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+
+        setupMenuDrawer()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -49,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                // ação  quando terminou de buscar e enviou
+                // ação quando terminou de buscar e enviou
 
                 Toast.makeText(
                     this@HomeActivity,

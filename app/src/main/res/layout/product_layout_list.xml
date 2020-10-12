@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="10dp"
+        card_view:cardMaxElevation="10dp"
+        card_view:contentPadding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imvProduct"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:padding="5dp"
+                android:src="@drawable/battle"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txvNameProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imvProduct"
+                android:layout_centerHorizontal="true"
+                tools:text="Adidas"
+                android:maxLength="30"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/dark"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/imvProduct" />
+
+            <TextView
+                android:id="@+id/txvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txvNameProduct"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                tools:text="Tenis Adidas Originals"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textColor="@color/dark"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/txvNameProduct" />
+
+            <TextView
+                android:id="@+id/txvOldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txvNameProduct"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                tools:text="R$ 340,00"
+                android:textColor="@color/dark"
+                card_view:layout_constraintEnd_toStartOf="@+id/txvPrice"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/txvDescription" />
+
+            <TextView
+                android:id="@+id/txvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txvNameProduct"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                tools:text="R$ 310,00"
+                android:textColor="@color/dark"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/txvOldPrice"
+                card_view:layout_constraintTop_toBottomOf="@+id/txvDescription" />
+
+            <Button
+                android:id="@+id/btnBuyProduct"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/blueButton"
+                android:text="@string/detalhes"
+                android:textColor="@color/white"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/txvPrice" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -19,6 +19,13 @@
     <string name="calcados">Calcados</string>
     <string name="bermudas">Bermudas</string>
     <string name="camisetas">Camisetas</string>
+    <string name="produtos">Produtos</string>
+    <string name="erro_na_busca_dos_produtos">Erro na busca dos produtos</string>
+    <string name="masculino">Masculino</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="camisetas_masculinas">Camisetas Masculinas</string>
+    <string name="bermudas_masculinas">Bermudas Masculinas</string>
+    <string name="calcados_masculinos">Calçados Masculinos</string>
 
     <string name="home_activity">Home Activity</string>
     <string name="product_category_activity">Product Category Activity</string>
@@ -29,5 +36,12 @@
     <string name="adicionar_produto">Adicionar produto</string>
     <string name="configuracoes">Configurações</string>
     <string name="sair">Sair</string>
+    <string name="title_activity_main_drawer">MainActivityDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
