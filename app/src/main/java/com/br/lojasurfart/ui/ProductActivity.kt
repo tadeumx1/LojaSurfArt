@@ -9,13 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.br.lojasurfart.R
 import com.br.lojasurfart.model.Product
+import com.br.lojasurfart.model.ProductVariant
 import com.br.lojasurfart.service.ProductService
 import com.br.lojasurfart.ui.adapter.RecyclerAdapterProduct
 import kotlinx.android.synthetic.main.activity_product.*
 
 class ProductActivity : DebugActivity() {
 
-    private var listProduct = listOf<Product>()
+    private var listProduct = listOf<ProductVariant>()
+
+    // private var listProductVariant = listOf<ProductVariant>()
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterProduct: RecyclerAdapterProduct
@@ -46,7 +49,7 @@ class ProductActivity : DebugActivity() {
         recyclerView.setHasFixedSize(true)
 
         Thread {
-            this.listProduct = ProductService.getProducts()
+            this.listProduct = ProductService.getProducts(this)
             runOnUiThread {
 
                 // Adapter
@@ -61,7 +64,20 @@ class ProductActivity : DebugActivity() {
 
     }
 
-    private fun onClickProduct(product: Product) {
-        Toast.makeText(this, "Clicou produto ${product.name}", Toast.LENGTH_SHORT).show()
+    private fun transformProductVariantList(products: List<Product>): List<ProductVariant> {
+        val productVariantList = mutableListOf<ProductVariant>()
+        if (products.isNotEmpty()) {
+            products.forEach { product ->
+                product.variants?.forEach { productVariant ->
+                    productVariantList.add(productVariant)
+                }
+            }
+        }
+
+        return productVariantList
+    }
+
+    private fun onClickProduct(productVariant: ProductVariant) {
+        Toast.makeText(this, "Clicou produto ${productVariant.title}", Toast.LENGTH_SHORT).show()
     }
 }

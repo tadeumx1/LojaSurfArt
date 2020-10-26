@@ -1,5 +1,6 @@
 package com.br.lojasurfart.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -9,9 +10,20 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.br.lojasurfart.model.ProductVariant
+import com.br.lojasurfart.service.ProductService
+import com.br.lojasurfart.ui.adapter.RecyclerAdapterProduct
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : DebugActivity() {
+
+    private val context: Context get() = this
+    private var listProduct = listOf<ProductVariant>()
+
+    // private var listProductVariant = listOf<ProductVariant>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,27 +32,37 @@ class HomeActivity : DebugActivity() {
         this.genericLayoutMenu = drawer_menu_layout
         this.genericMenuLateral = nav_view
 
-        btnShirt.setOnClickListener {
-            showProductCategoryActivity("Camisetas")
-        }
-
-        btnBermudas.setOnClickListener {
-            showProductCategoryActivity("Bermudas")
-        }
-
-        btnCalcados.setOnClickListener {
-            showProductCategoryActivity("Calçados")
-        }
-
-        btnProdutos.setOnClickListener {
-            val intent = Intent(this, ProductActivity::class.java)
-            startActivity(intent)
-        }
-
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
         setupMenuDrawer()
+
+        recycler_view?.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        recycler_view?.itemAnimator = DefaultItemAnimator()
+        recycler_view?.setHasFixedSize(true)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        taskProducts()
+    }
+
+    private fun taskProducts() {
+        Thread {
+            this.listProduct = ProductService.getProducts(context)
+            runOnUiThread {
+                // Adapter
+                recycler_view?.adapter = RecyclerAdapterProduct(this.listProduct) { onClickProduct(it) }
+
+            }
+        }.start()
+
+    }
+
+    private fun onClickProduct(productVariant: ProductVariant) {
+        Toast.makeText(this, "Clicou produto ${productVariant.title}", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -87,7 +109,7 @@ class HomeActivity : DebugActivity() {
 
             R.id.action_add_item -> {
 
-                val intent = Intent(this, RegisterActivity::class.java)
+                val intent = Intent(this, RegisterProductActivity::class.java)
                 startActivity(intent)
 
                 return true
@@ -126,12 +148,12 @@ class HomeActivity : DebugActivity() {
 
     private fun showProgressBar() {
         progress_bar.visibility = View.VISIBLE
-        txvHomeActivity.visibility = View.GONE
+        // txvHomeActivity.visibility = View.GONE
 
         progress_bar.postDelayed({
             progress_bar.visibility = View.GONE
 
-            txvHomeActivity.visibility = View.VISIBLE
+            // txvHomeActivity.visibility = View.VISIBLE
 
             Toast.makeText(this, "Lista Atualizada", Toast.LENGTH_LONG).show()
         }, 10000)

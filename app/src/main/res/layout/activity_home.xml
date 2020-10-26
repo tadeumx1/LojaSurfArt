@@ -10,70 +10,49 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.HomeActivity">
+        android:background="#EFEFF4"
+        tools:context=".ui.MainActivity">
 
-        <include layout="@layout/toolbar" />
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:indeterminateTint="#457fca"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txvHomeActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_activity"
-            android:textSize="20sp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#EFEFF4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <Button
-            android:id="@+id/btnShirt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/camisetas"
-            app:layout_constraintEnd_toStartOf="@+id/btnCalcados"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnCalcados" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/btnCalcados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/calcados"
-            app:layout_constraintEnd_toStartOf="@+id/btnBermudas"
-            app:layout_constraintStart_toEndOf="@+id/btnShirt"
-            app:layout_constraintTop_toBottomOf="@+id/txvHomeActivity" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnBermudas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bermudas"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnCalcados"
-            app:layout_constraintTop_toTopOf="@+id/btnCalcados" />
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="#457fca"
+                android:visibility="gone" />
 
-        <Button
-            android:id="@+id/btnProdutos"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/produtos"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCalcados" />
+            <TextView
+                android:id="@+id/txvErrorProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/erro_na_busca_dos_produtos"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

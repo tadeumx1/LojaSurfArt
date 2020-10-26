@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.br.lojasurfart.R
-import com.br.lojasurfart.model.Product
+import com.br.lojasurfart.model.ProductVariant
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.product_layout_list.view.*
 import java.text.DecimalFormat
 
 class RecyclerAdapterProduct (
-    val products: List<Product>,
-    val onClick: (Product) -> Unit): RecyclerView.Adapter<RecyclerAdapterProduct.ProductsViewHolder>() {
+    val products: List<ProductVariant>,
+    val onClick: (ProductVariant) -> Unit): RecyclerView.Adapter<RecyclerAdapterProduct.ProductsViewHolder>() {
 
     class ProductsViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
@@ -42,8 +42,8 @@ class RecyclerAdapterProduct (
 
         val decimalFormat = DecimalFormat("0.00")
 
-        holder.productName.text = product.name
-        holder.productDescription.text = product.description
+        holder.productName.text = product.title
+        holder.productDescription.text = "Quantidade ${product.quantity}"
 
         holder.productOldPrice.text = "R$" + decimalFormat.format(product.price)
         holder.productOldPrice.paintFlags = holder.productOldPrice.paintFlags or STRIKE_THRU_TEXT_FLAG
@@ -53,7 +53,7 @@ class RecyclerAdapterProduct (
             .error(R.drawable.ic_launcher_background)
         Glide.with(context)
             .setDefaultRequestOptions(defaultOptions)
-            .load(products[position].image_url)
+            .load(products[position].images?.get(0))
             .into(holder.productImage)
 
         holder.itemView.setOnClickListener { onClick(product) }
