@@ -7,17 +7,17 @@ import com.br.lojasurfart.BaseApplication
 object DatabaseManager {
 
     // singleton
-    private var dbInstance: ProductDatabase
+    private var dbInstance: CategoryDatabase
     init {
         val appContext = BaseApplication.getInstance().applicationContext
         dbInstance = Room.databaseBuilder(
             appContext, // contexto global
-            ProductDatabase::class.java, // Referência da classe do banco
-            "product.sqlite" // nome do arquivo do banco
+            CategoryDatabase::class.java, // Referência da classe do banco
+            "category.sqlite" // nome do arquivo do banco
         ).build()
     }
 
-    fun getProductDAO(): ProductDAO {
-        return dbInstance.productDAO()
+    fun getCategoryDAO(): CategoryDAO {
+        return dbInstance.categoryDAO()
     }
 }

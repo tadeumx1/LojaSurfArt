@@ -1,6 +1,7 @@
 package com.br.lojasurfart.service
 
 import android.content.Context
+import android.widget.Toast
 import com.br.lojasurfart.model.Product
 import com.br.lojasurfart.model.ProductList
 import com.br.lojasurfart.model.ProductRegister
@@ -14,7 +15,7 @@ import okhttp3.Response
 object ProductService {
 
     var host = "https://surfart-homolog.herokuapp.com/api"
-    val TAG = "WS_LojaSurftArt"
+    val TAG = "WS_LojaSurfArt"
 
 
     fun getProducts(context: Context): List<ProductVariant> {
@@ -25,15 +26,30 @@ object ProductService {
             val json = HttpHelper.get(url)
             val productResponse: ProductList = parserJson(json)
             products = productResponse.docs.toMutableList()
-            // salvar offline
-            for (p in products) {
-                saveOffline(p)
-            }
             return transformProductVariantList(products)
         } else {
-            val dao = DatabaseManager.getProductDAO()
-            return transformProductVariantList(dao.findAll())
+
+            /* Toast.makeText(
+                context,
+                "É necessário estar conectado a internet para visualizar os produtos",
+                Toast.LENGTH_LONG).show() */
+
+            return emptyList()
         }
+    }
+
+    fun createProduct(productRegister: ProductRegister): Product {
+        if (AndroidUtils.isInternetDisponivel()) {
+            val gson = Gson()
+
+            val url = "$host/products"
+            val json = HttpHelper.post(url, gson.toJson(productRegister))
+
+            return parserJson(json)
+        } else {
+            return Product()
+        }
+
     }
 
     private fun transformProductVariantList(products: List<Product>): List<ProductVariant> {
@@ -47,21 +63,6 @@ object ProductService {
         }
 
         return productVariantList
-    }
-
-    private fun saveOffline(product: Product) : Boolean {
-        val dao = DatabaseManager.getProductDAO()
-
-        if (!productExists(product)) {
-            dao.insert(product)
-        }
-
-        return true
-    }
-
-    private fun productExists(product: Product): Boolean {
-        val dao = DatabaseManager.getProductDAO()
-        return dao.getById(product.id) != null
     }
 
     private inline fun <reified T> parserJson(json: String): T {

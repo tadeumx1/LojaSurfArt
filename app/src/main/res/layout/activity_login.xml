@@ -106,9 +106,31 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lncheckBox"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/lnpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBoxPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lembrar Usuário"
+                    android:buttonTint="@color/white"
+                    android:backgroundTint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_below="@id/lnpassword"
+                android:layout_below="@id/lncheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/buttonStyle"

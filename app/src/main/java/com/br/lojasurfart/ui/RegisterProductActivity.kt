@@ -15,7 +15,9 @@ import kotlinx.android.synthetic.main.activity_product_category.drawer_menu_layo
 import kotlinx.android.synthetic.main.activity_product_category.nav_view
 import kotlinx.android.synthetic.main.activity_register_product.*
 import android.widget.Toast
+import com.br.lojasurfart.model.Product
 import com.br.lojasurfart.model.ProductRegister
+import com.br.lojasurfart.service.ProductService
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import java.lang.Integer.parseInt
 
@@ -23,12 +25,15 @@ import java.lang.Integer.parseInt
 class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
     AdapterView.OnItemSelectedListener {
 
+    private lateinit var productResponse: Product
+
     companion object {
         const val DIALOG_ID = 0
         const val TAG = "RegisterProductActivity"
     }
 
-    var productSizeList = arrayOf("PP", "P", "M", "G", "GG")
+    private var productSizeList = arrayOf("PP", "P", "M", "G", "GG")
+    private var productSizeListSelected = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +79,7 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
     }
 
     override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Toast.makeText(this, "Selecionado " + productSizeList[position], Toast.LENGTH_LONG).show()
+        productSizeListSelected = productSizeList[position]
     }
 
     private fun registerProduct() {
@@ -89,12 +94,31 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
                 tags = productTags
             )
 
-
+            saveProduct(productRegister)
 
         } else {
             Toast.makeText(this, "Preencha os campos", Toast.LENGTH_LONG).show()
         }
 
+    }
+
+    private fun saveProduct(productRegister: ProductRegister) {
+        Thread {
+            productResponse = ProductService.createProduct(productRegister)
+            runOnUiThread {
+
+                if(productResponse.id != null) {
+
+                    edtProductTitle.setText("")
+                    edtProductCategoryId.setText("")
+                    edtProductTags.setText("")
+                    Toast.makeText(this, "Produto salvo com sucesso", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Erro ao registrar produto", Toast.LENGTH_LONG).show()
+                }
+
+            }
+        }.start()
     }
 
     private fun openColorPicker(hasFocus: Boolean) {
@@ -113,11 +137,11 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
         when (dialogId) {
             DIALOG_ID -> {
                 // We got result from the dialog that is shown when clicking on the icon in the action bar.
-                Toast.makeText(
+                /* Toast.makeText(
                     this@RegisterProductActivity,
                     "Selected Color: #" + Integer.toHexString(color),
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show() */
 
                 edtProductVariantColor.setText("#" + Integer.toHexString(color))
             }

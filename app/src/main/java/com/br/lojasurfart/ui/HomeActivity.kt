@@ -140,12 +140,6 @@ class HomeActivity : DebugActivity() {
         }
     }
 
-    private fun showProductCategoryActivity(productCategory: String) {
-        val intent = Intent(this, ProductCategoryActivity::class.java)
-        intent.putExtra("productCategory", productCategory)
-        startActivity(intent)
-    }
-
     private fun showProgressBar() {
         progress_bar.visibility = View.VISIBLE
         // txvHomeActivity.visibility = View.GONE
