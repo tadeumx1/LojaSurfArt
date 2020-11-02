@@ -136,7 +136,7 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
             val productVariantWidth = parseDouble(edtProductVariantWidth.text.toString())
 
             val colorInformation = ColorInformation(
-                    title = "Cor Teste",
+                    title = productVariantColor,
                     code = productVariantColor
             )
 
