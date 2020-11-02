@@ -139,7 +139,7 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
                     title = "Cor Teste",
                     code = productVariantColor
             )
-            2
+
             val productVariantRegister = ProductVariantRegister(
                     title = productVariantTitle,
                     productId = productId,
@@ -200,6 +200,7 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
                     edtProductVariantImage.setText("")
                     edtProductVariantHeight.setText("")
                     edtProductVariantWeight.setText("")
+
                     Toast.makeText(this, "A variante do produto foi cadastrada com sucesso", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this, "Erro ao registrar a variante do produto", Toast.LENGTH_LONG).show()
@@ -224,13 +225,6 @@ class RegisterProductActivity : DebugActivity(), ColorPickerDialogListener,
     override fun onColorSelected(dialogId: Int, color: Int) {
         when (dialogId) {
             DIALOG_ID -> {
-                // We got result from the dialog that is shown when clicking on the icon in the action bar.
-                /* Toast.makeText(
-                    this@RegisterProductActivity,
-                    "Selected Color: #" + Integer.toHexString(color),
-                    Toast.LENGTH_SHORT
-                ).show() */
-
                 edtProductVariantColor.setText("#" + Integer.toHexString(color))
             }
         }

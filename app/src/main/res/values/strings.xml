@@ -44,5 +44,30 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="lembrar_usuario">Lembrar Usuário</string>
+    <string name="nome_da_categoria">Nome da Categoria</string>
+    <string name="cadastro_de_categorias">Cadastro de Categorias</string>
+    <string name="descricao_da_categoria">Descrição da categoria</string>
+    <string name="salvar">Salvar</string>
+    <string name="cadastro_de_produtos">Cadastro de Produtos</string>
+    <string name="titulo_do_produto">Título do Produto</string>
+    <string name="ID_da_categoria_do_produto">ID da Categoria do produto</string>
+    <string name="separar_as_tags_por_virgula_ao_escrever">(Separar as tags por vírgula ao escrever)</string>
+    <string name="cadastro_de_variantes_dos_produtos">Cadastro de Variantes dos Produtos</string>
+    <string name="ID_do_produto">ID do Produto</string>
+    <string name="titulo">Título</string>
+    <string name="preco_anterior">Preço Anterior</string>
+    <string name="preco">Preço</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="promocao">Promoção</string>
+    <string name="tamanho">Tamanho</string>
+    <string name="cor">Cor</string>
+    <string name="comprimento_em_centimetros">Comprimento em Centímetros</string>
+    <string name="largura_em_centimetros">Largura em Centímetros</string>
+    <string name="imagens">Imagens</string>
+    <string name="separar_as_imagens_por_virgula_ao_escrever">(Separar as imagens por vírgula ao escrever)</string>
+    <string name="altura_em_centimetros">Altura em Centímetros</string>
+    <string name="peso_em_gramas">Peso em Gramas</string>
+    <string name="tags_do_produto">Tags do Produto</string>
 
 </resources>

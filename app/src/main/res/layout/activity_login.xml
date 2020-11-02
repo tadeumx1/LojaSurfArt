@@ -119,7 +119,7 @@
                     android:id="@+id/checkBoxPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lembrar Usuário"
+                    android:text="@string/lembrar_usuario"
                     android:buttonTint="@color/white"
                     android:backgroundTint="@color/colorWhite"
                     android:textColor="@color/colorWhite"
