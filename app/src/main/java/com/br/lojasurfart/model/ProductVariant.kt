@@ -3,14 +3,16 @@ package com.br.lojasurfart.model
 import com.google.gson.annotations.SerializedName
 
 data class ProductVariant(
+    @SerializedName("id")
+    val id: Int? = null,
     @SerializedName("title")
-    val title: String?,
+    val title: String? = null,
     @SerializedName("quantity")
-    val quantity: Int?,
+    val quantity: Int? = null,
     @SerializedName("images")
-    val images: List<String>?,
+    val images: List<String>? = null,
     @SerializedName("price")
-    val price: Double?,
+    val price: Double? = null,
     @SerializedName("old_price")
-    val oldPrice: Double?
+    val oldPrice: Double? = null
 )

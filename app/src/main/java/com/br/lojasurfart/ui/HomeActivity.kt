@@ -50,15 +50,24 @@ class HomeActivity : DebugActivity() {
     }
 
     private fun taskProducts() {
-        Thread {
-            this.listProduct = ProductService.getProducts(context)
-            runOnUiThread {
-                // Adapter
-                recycler_view?.adapter = RecyclerAdapterProduct(this.listProduct) { onClickProduct(it) }
+        progress_bar.visibility = View.VISIBLE
 
+        Thread {
+
+            this.listProduct = ProductService.getProducts(context)
+
+            if(listProduct.isEmpty()) {
+                Toast.makeText(this, "Erro ao carregar produtos", Toast.LENGTH_LONG).show()
+            } else {
+                runOnUiThread {
+                    // Adapter
+                    recycler_view?.adapter = RecyclerAdapterProduct(this.listProduct) { onClickProduct(it) }
+                }
             }
+
         }.start()
 
+        progress_bar.visibility = View.GONE
     }
 
     private fun onClickProduct(productVariant: ProductVariant) {

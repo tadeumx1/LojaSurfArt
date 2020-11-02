@@ -2,10 +2,7 @@ package com.br.lojasurfart.service
 
 import android.content.Context
 import android.widget.Toast
-import com.br.lojasurfart.model.Product
-import com.br.lojasurfart.model.ProductList
-import com.br.lojasurfart.model.ProductRegister
-import com.br.lojasurfart.model.ProductVariant
+import com.br.lojasurfart.model.*
 import com.br.lojasurfart.storage.DatabaseManager
 import com.br.lojasurfart.util.AndroidUtils
 import com.google.gson.Gson
@@ -28,12 +25,6 @@ object ProductService {
             products = productResponse.docs.toMutableList()
             return transformProductVariantList(products)
         } else {
-
-            /* Toast.makeText(
-                context,
-                "É necessário estar conectado a internet para visualizar os produtos",
-                Toast.LENGTH_LONG).show() */
-
             return emptyList()
         }
     }
@@ -48,6 +39,20 @@ object ProductService {
             return parserJson(json)
         } else {
             return Product()
+        }
+
+    }
+
+    fun createProductVariant(productVariantRegister: ProductVariantRegister): ProductVariant {
+        if (AndroidUtils.isInternetDisponivel()) {
+            val gson = Gson()
+
+            val url = "$host/skus"
+            val json = HttpHelper.post(url, gson.toJson(productVariantRegister))
+
+            return parserJson(json)
+        } else {
+            return ProductVariant()
         }
 
     }

@@ -97,7 +97,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="@color/blueButton"
-                android:text="@string/detalhes"
+                android:text="@string/comprar"
                 android:textColor="@color/white"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"

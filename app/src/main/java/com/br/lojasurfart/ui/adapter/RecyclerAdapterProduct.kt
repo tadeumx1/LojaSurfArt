@@ -45,7 +45,7 @@ class RecyclerAdapterProduct (
         holder.productName.text = product.title
         holder.productDescription.text = "Quantidade ${product.quantity}"
 
-        holder.productOldPrice.text = "R$" + decimalFormat.format(product.price)
+        holder.productOldPrice.text = "R$" + decimalFormat.format(product.oldPrice)
         holder.productOldPrice.paintFlags = holder.productOldPrice.paintFlags or STRIKE_THRU_TEXT_FLAG
         holder.productPrice.text = "R$" + decimalFormat.format(product.price)
 
