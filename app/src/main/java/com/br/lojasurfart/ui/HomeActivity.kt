@@ -37,6 +37,8 @@ class HomeActivity : DebugActivity() {
 
         setupMenuDrawer()
 
+        genericMenuLateral?.setCheckedItem(R.id.nav_products)
+
         recycler_view?.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
         recycler_view?.itemAnimator = DefaultItemAnimator()
         recycler_view?.setHasFixedSize(true)

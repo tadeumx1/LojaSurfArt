@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.br.lojasurfart.R
 import com.br.lojasurfart.model.Category
@@ -61,20 +62,29 @@ class LoginActivity : AppCompatActivity() {
                 password = password
             )
 
+            btnLogin.visibility = View.GONE
+            progress_bar.visibility = View.VISIBLE
+
             Thread {
                 loginResponse = LoginService.loginUser(context, login)
                 runOnUiThread {
 
                     if(loginResponse.name != null && loginResponse.token != null) {
                         saveUserChecked(login)
+
+                        val intent = Intent(this, HomeActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+
+                        progress_bar.visibility = View.GONE
+                        btnLogin.visibility = View.VISIBLE
                     } else {
                         Toast.makeText(this, "Usuário ou senha incorretos", Toast.LENGTH_LONG).show()
-                    }
 
-                    val intent = Intent(this, HomeActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                    finish()
+                        progress_bar.visibility = View.GONE
+                        btnLogin.visibility = View.VISIBLE
+                    }
                 }
             }.start()
         }

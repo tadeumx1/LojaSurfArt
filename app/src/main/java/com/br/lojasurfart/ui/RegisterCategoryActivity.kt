@@ -1,7 +1,9 @@
 package com.br.lojasurfart.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.br.lojasurfart.R
 import com.br.lojasurfart.model.Category
 import com.br.lojasurfart.service.CategoryService
@@ -17,6 +19,11 @@ class RegisterCategoryActivity : DebugActivity() {
 
         this.genericLayoutMenu = drawer_menu_layout
         this.genericMenuLateral = nav_view
+
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+
+        setupMenuDrawer()
 
         setupListener()
     }

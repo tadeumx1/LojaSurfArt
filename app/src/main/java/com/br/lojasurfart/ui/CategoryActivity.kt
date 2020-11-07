@@ -3,6 +3,7 @@ package com.br.lojasurfart.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,6 +16,7 @@ import com.br.lojasurfart.R
 import com.br.lojasurfart.model.Category
 import com.br.lojasurfart.service.CategoryService
 import com.br.lojasurfart.ui.adapter.RecyclerAdapterCategory
+import com.br.lojasurfart.util.NotificationUtil
 import kotlinx.android.synthetic.main.activity_category.*
 import kotlinx.android.synthetic.main.activity_category.drawer_menu_layout
 import kotlinx.android.synthetic.main.activity_category.nav_view
@@ -36,9 +38,15 @@ class CategoryActivity : DebugActivity() {
 
         setupMenuDrawer()
 
+        genericMenuLateral?.setCheckedItem(R.id.nav_categories)
+
         recycler_view_category?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recycler_view_category?.itemAnimator = DefaultItemAnimator()
         recycler_view_category?.setHasFixedSize(true)
+
+        Handler().postDelayed({
+            sendNotification()
+        }, 3000)
     }
 
     override fun onResume() {
@@ -57,6 +65,12 @@ class CategoryActivity : DebugActivity() {
             }
         }.start()
 
+    }
+
+    private fun sendNotification() {
+        val intent = Intent(this, HomeActivity::class.java)
+
+        NotificationUtil.create(this, 1, intent, "LojaSurfArt", "Confira as novas promoções")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

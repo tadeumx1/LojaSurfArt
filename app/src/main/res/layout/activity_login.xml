@@ -134,8 +134,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/buttonStyle"
+                android:visibility="visible"
                 android:text="@string/login_user"
                 android:layout_marginTop="50dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_below="@id/lncheckBox"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="#FFFFFF"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

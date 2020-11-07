@@ -19,5 +19,8 @@ class SettingsActivity : DebugActivity() {
         this.genericMenuLateral = nav_view
 
         setupMenuDrawer()
+
+        genericMenuLateral?.setCheckedItem(R.id.nav_config)
+
     }
 }

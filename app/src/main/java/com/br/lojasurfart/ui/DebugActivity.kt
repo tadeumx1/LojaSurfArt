@@ -33,9 +33,9 @@ open class DebugActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_products -> {
-                Toast.makeText(this, "Clicou Produtos", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(this, "Clicou Produtos", Toast.LENGTH_SHORT).show()
 
-                if(this@DebugActivity is HomeActivity) {
+                if (this@DebugActivity is HomeActivity) {
                    // You are in the Same Page"
 
                 } else {
@@ -48,7 +48,8 @@ open class DebugActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startActivity(intent)
             }
             R.id.nav_location -> {
-                Toast.makeText(this, "Clicou Localização", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MapActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_config -> {
                 Toast.makeText(this, "Clicou Configuração", Toast.LENGTH_SHORT).show()
