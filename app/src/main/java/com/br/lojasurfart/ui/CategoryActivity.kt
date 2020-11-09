@@ -17,6 +17,7 @@ import com.br.lojasurfart.model.Category
 import com.br.lojasurfart.service.CategoryService
 import com.br.lojasurfart.ui.adapter.RecyclerAdapterCategory
 import com.br.lojasurfart.util.NotificationUtil
+import com.br.lojasurfart.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.activity_category.*
 import kotlinx.android.synthetic.main.activity_category.drawer_menu_layout
 import kotlinx.android.synthetic.main.activity_category.nav_view
@@ -25,6 +26,8 @@ class CategoryActivity : DebugActivity() {
 
     private val context: Context get() = this
     private var listCategory = listOf<Category>()
+    private var userAdmin = false
+    private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,10 @@ class CategoryActivity : DebugActivity() {
         setSupportActionBar(toolbar)
 
         setupMenuDrawer()
+
+        sharedPreferencesUtil = SharedPreferencesUtil(this)
+
+        userAdmin = sharedPreferencesUtil.getValueBoolean("permissionAdminUser")
 
         genericMenuLateral?.setCheckedItem(R.id.nav_categories)
 
@@ -75,6 +82,11 @@ class CategoryActivity : DebugActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+
+        val categoryAddItem = menu?.findItem(R.id.action_add_item)
+        if(!userAdmin) {
+            categoryAddItem?.isVisible = false
+        }
 
         return true
     }

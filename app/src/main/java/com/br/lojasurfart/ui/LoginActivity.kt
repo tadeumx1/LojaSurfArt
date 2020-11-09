@@ -69,8 +69,10 @@ class LoginActivity : AppCompatActivity() {
                 loginResponse = LoginService.loginUser(context, login)
                 runOnUiThread {
 
-                    if(loginResponse.name != null && loginResponse.token != null) {
+                    if(loginResponse.name != "" && loginResponse.token != "") {
                         saveUserChecked(login)
+
+                        sharedPreferencesUtil.setValueBoolean("permissionAdminUser", loginResponse.admin)
 
                         val intent = Intent(this, HomeActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK

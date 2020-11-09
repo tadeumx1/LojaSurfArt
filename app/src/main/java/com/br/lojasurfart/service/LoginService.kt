@@ -24,7 +24,7 @@ object LoginService {
 
             return parserJson(json)
         } else {
-            return LoginResponse(name = "", token = "")
+            return LoginResponse(name = "", token = "", admin = false)
         }
 
     }

@@ -57,6 +57,7 @@
     <string name="ID_do_produto">ID do Produto</string>
     <string name="titulo">Título</string>
     <string name="preco_anterior">Preço Anterior</string>
+    <string name="descricao">Descrição</string>
     <string name="preco">Preço</string>
     <string name="quantidade">Quantidade</string>
     <string name="promocao">Promoção</string>
@@ -71,8 +72,5 @@
     <string name="tags_do_produto">Tags do Produto</string>
 
     <string name="API_KEY">AIzaSyAZgJF0cbaNvGJphvJuqdPer5D2X0a5WHg</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

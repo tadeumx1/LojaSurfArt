@@ -16,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.br.lojasurfart.model.ProductVariant
 import com.br.lojasurfart.service.ProductService
 import com.br.lojasurfart.ui.adapter.RecyclerAdapterProduct
+import com.br.lojasurfart.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : DebugActivity() {
 
     private val context: Context get() = this
     private var listProduct = listOf<ProductVariant>()
+    private var userAdmin = false
+    private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
 
     // private var listProductVariant = listOf<ProductVariant>()
 
@@ -36,6 +39,10 @@ class HomeActivity : DebugActivity() {
         setSupportActionBar(toolbar)
 
         setupMenuDrawer()
+
+        sharedPreferencesUtil = SharedPreferencesUtil(this)
+
+        userAdmin = sharedPreferencesUtil.getValueBoolean("permissionAdminUser")
 
         genericMenuLateral?.setCheckedItem(R.id.nav_products)
 
@@ -78,6 +85,11 @@ class HomeActivity : DebugActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+
+        val productAddItem = menu?.findItem(R.id.action_add_item)
+        if(!userAdmin) {
+            productAddItem?.isVisible = false
+        }
 
         (menu?.findItem(R.id.action_search)?.actionView as SearchView).setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {
@@ -142,6 +154,7 @@ class HomeActivity : DebugActivity() {
 
             R.id.action_quit_user -> {
                 val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
 
                 return true

@@ -56,12 +56,12 @@
 
             <ImageView
                 android:id="@+id/imvCategory"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerInParent="true"
                 android:layout_marginEnd="20dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_chevron_right_black_24dp"
+                android:src="@drawable/ic_shopping_cart_black_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

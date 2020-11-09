@@ -6,5 +6,7 @@ data class LoginResponse(
     @SerializedName("name")
     var name: String?,
     @SerializedName("token")
-    var token: String?
+    var token: String?,
+    @SerializedName("admin")
+    var admin: Boolean
 )

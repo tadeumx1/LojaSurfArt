@@ -34,12 +34,22 @@ class SharedPreferencesUtil() {
         editor.apply()
     }
 
+    fun setValueBoolean(KEY_NAME: String, value: Boolean) {
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putBoolean(KEY_NAME, value)
+        editor.apply()
+    }
+
     fun removeValue(KEY_NAME: String) {
         sharedPref.edit().remove(KEY_NAME).apply()
     }
 
     fun getValueString(KEY_NAME: String): String? {
         return sharedPref.getString(KEY_NAME, null)
+    }
+
+    fun getValueBoolean(KEY_NAME: String): Boolean {
+        return sharedPref.getBoolean(KEY_NAME, false)
     }
 
     fun clear() {

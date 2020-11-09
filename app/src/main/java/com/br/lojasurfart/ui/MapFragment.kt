@@ -25,7 +25,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         this.map = googleMap
 
         // Verificar se localização está autorizada
-        val ok = PermissionUtils.validate(activity!!, 1,
+        val ok = PermissionUtils.validate(requireActivity(), 1,
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION)
         // Colocar o botão de localização
