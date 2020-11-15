@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.br.lojasurfart.R
@@ -25,6 +26,7 @@ class RecyclerAdapterProduct (
         val productOldPrice: TextView = itemView.txvOldPrice
         val productPrice: TextView = itemView.txvPrice
         val productImage: ImageView = itemView.imvProduct
+        val productBuyButton: Button = itemView.btnBuyProduct
     }
 
     override fun getItemCount() = this.products.size
@@ -56,6 +58,8 @@ class RecyclerAdapterProduct (
             .load(products[position].images?.get(0))
             .into(holder.productImage)
 
-        holder.itemView.setOnClickListener { onClick(product) }
+        // holder.itemView.setOnClickListener { onClick(product) }
+
+        holder.productBuyButton.setOnClickListener { onClick(product) }
     }
 }

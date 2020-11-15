@@ -2,6 +2,7 @@ package com.br.lojasurfart.ui
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,7 +10,6 @@ import com.br.lojasurfart.R
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -70,17 +70,17 @@ class HomeActivity : DebugActivity() {
             } else {
                 runOnUiThread {
                     // Adapter
+                    progress_bar.visibility = View.GONE
                     recycler_view?.adapter = RecyclerAdapterProduct(this.listProduct) { onClickProduct(it) }
                 }
             }
 
         }.start()
-
-        progress_bar.visibility = View.GONE
     }
 
     private fun onClickProduct(productVariant: ProductVariant) {
-        Toast.makeText(this, "Clicou produto ${productVariant.title}", Toast.LENGTH_SHORT).show()
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://surfartbrazil.herokuapp.com/produtos/detalhes/" + productVariant.productId))
+        startActivity(browserIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -91,44 +91,12 @@ class HomeActivity : DebugActivity() {
             productAddItem?.isVisible = false
         }
 
-        (menu?.findItem(R.id.action_search)?.actionView as SearchView).setOnQueryTextListener(object :
-            SearchView.OnQueryTextListener {
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                // ação enquanto está digitando
-
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Texto que está sendo digitado $newText",
-                    Toast.LENGTH_LONG
-                ).show()
-
-                return false
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                // ação quando terminou de buscar e enviou
-
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Texto após finalizar a busca $query",
-                    Toast.LENGTH_LONG
-                ).show()
-
-                return false
-            }
-
-        })
-
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.action_search -> {
-                return true
-            }
 
             R.id.action_add_item -> {
 
@@ -140,7 +108,8 @@ class HomeActivity : DebugActivity() {
 
             R.id.action_update -> {
 
-                showProgressBar()
+                taskProducts()
+                (recycler_view?.adapter as RecyclerAdapterProduct).notifyDataSetChanged()
 
                 return true
             }
@@ -162,18 +131,5 @@ class HomeActivity : DebugActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    private fun showProgressBar() {
-        progress_bar.visibility = View.VISIBLE
-        // txvHomeActivity.visibility = View.GONE
-
-        progress_bar.postDelayed({
-            progress_bar.visibility = View.GONE
-
-            // txvHomeActivity.visibility = View.VISIBLE
-
-            Toast.makeText(this, "Lista Atualizada", Toast.LENGTH_LONG).show()
-        }, 10000)
     }
 }

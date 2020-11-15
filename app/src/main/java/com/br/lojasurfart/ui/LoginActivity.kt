@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         val userSharedPreferences = sharedPreferencesUtil.getValueString("user")
         val user = gson.fromJson<Login>(userSharedPreferences, Login::class.java)
 
-        if(user != null) {
+        if(user.checkPassword) {
             edtUser.setText(user.email)
             edtPassword.setText(user.password)
             checkBoxPassword.isChecked = true
@@ -59,7 +59,8 @@ class LoginActivity : AppCompatActivity() {
 
             val login = Login(
                 email = username,
-                password = password
+                password = password,
+                checkPassword = false
             )
 
             btnLogin.visibility = View.GONE
@@ -97,8 +98,10 @@ class LoginActivity : AppCompatActivity() {
         val gson = Gson()
 
         if(checkBoxPassword.isChecked) {
-            sharedPreferencesUtil.setValueString("user", gson.toJson(login))
+            login.checkPassword = true
         }
+
+        sharedPreferencesUtil.setValueString("user", gson.toJson(login))
     }
 
 }

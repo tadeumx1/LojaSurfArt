@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MapActivity"></activity>
+        <activity android:name=".ui.MapActivity" />
         <activity android:name=".ui.RegisterCategoryActivity" />
         <activity android:name=".ui.ProductActivity" />
         <activity android:name=".ui.CategoryActivity" />
@@ -41,10 +41,7 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-
-        <!-- Google play services -->
-
+        </service> <!-- Google play services -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" /> <!-- Chave de acesso à API do Google Maps -->

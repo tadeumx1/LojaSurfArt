@@ -52,7 +52,8 @@ open class DebugActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startActivity(intent)
             }
             R.id.nav_config -> {
-                Toast.makeText(this, "Clicou Configuração", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_quit_user -> {
                 val intent = Intent(this, LoginActivity::class.java)

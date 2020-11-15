@@ -20,14 +20,89 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/txvConfiguracao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings_activity"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Configuração do aplicativo"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxLembrarUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvConfiguracao" />
+
+        <TextView
+            android:id="@+id/txvLembrarUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lembrar Usuário"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxLembrarUsuario"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxLembrarUsuario"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxLembrarUsuario" />
+
+        <TextView
+            android:id="@+id/txvInformacaoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Informações do usuário"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxLembrarUsuario" />
+
+        <TextView
+            android:id="@+id/txvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Email ou nome -"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvInformacaoUsuario" />
+
+        <TextView
+            android:id="@+id/txvEmailUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="5dp"
+            android:text="leone4543@uorak.com"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/txvEmail"
+            app:layout_constraintTop_toBottomOf="@+id/txvInformacaoUsuario" />
+
+        <TextView
+            android:id="@+id/txvTipoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="Tipo -"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvEmailUser" />
+
+        <TextView
+            android:id="@+id/txvTipoUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="5dp"
+            android:text="Administrador"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/txvTipoUsuario"
+            app:layout_constraintTop_toBottomOf="@+id/txvEmailUser" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

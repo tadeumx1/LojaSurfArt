@@ -7,7 +7,6 @@ import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +38,8 @@ class CategoryActivity : DebugActivity() {
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
+        supportActionBar?.title = getString(R.string.categorias)
+
         setupMenuDrawer()
 
         sharedPreferencesUtil = SharedPreferencesUtil(this)
@@ -63,10 +64,13 @@ class CategoryActivity : DebugActivity() {
     }
 
     private fun taskCategories() {
+        progress_bar.visibility = View.VISIBLE
+
         Thread {
             this.listCategory = CategoryService.getCategories(context)
             runOnUiThread {
                 // Adapter
+                progress_bar.visibility = View.GONE
                 recycler_view_category?.adapter = RecyclerAdapterCategory(this.listCategory) { onClickCategory(it) }
 
             }
@@ -103,11 +107,34 @@ class CategoryActivity : DebugActivity() {
                 return true
             }
 
+            R.id.action_update -> {
+
+                taskCategories()
+                (recycler_view_category?.adapter as RecyclerAdapterCategory).notifyDataSetChanged()
+
+                return true
+            }
+
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+
+                return true
+            }
+
+            R.id.action_quit_user -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+
+                return true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     private fun onClickCategory(category: Category) {
-        Toast.makeText(this, "Clicou categoria ${category.name}", Toast.LENGTH_SHORT).show()
+        // Toast.makeText(this, "Clicou categoria ${category.name}", Toast.LENGTH_SHORT).show()
     }
 }

@@ -45,6 +45,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="lembrar_usuario">Lembrar Usuário</string>
+    <string name="categorias">Categorias</string>
     <string name="nome_da_categoria">Nome da Categoria</string>
     <string name="cadastro_de_categorias">Cadastro de Categorias</string>
     <string name="descricao_da_categoria">Descrição da categoria</string>

@@ -9,6 +9,8 @@ data class ProductVariant(
     val title: String? = null,
     @SerializedName("quantity")
     val quantity: Int? = null,
+    @SerializedName("product_id")
+    val productId: Int? = null,
     @SerializedName("images")
     val images: List<String>? = null,
     @SerializedName("price")
